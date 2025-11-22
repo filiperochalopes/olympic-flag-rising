@@ -1,0 +1,445 @@
+/* --------- IMPORTS & MIXINS ----------- */ 
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+@mixin paddingmargin0{
+    padding: 0;
+    margin: 0;
+}
+
+@mixin center{
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin centerx{
+    left:50%;
+    transform: translateX(-50%);
+}
+
+/* --------- VARIAVEIS ----------- */ 
+
+$cinzaescuro: #313131;
+$azulmarinha: #2f5d9b;
+$azulescuro: #20395a;
+$verde: #4bd57d;
+$vermelho: #d5455f;
+
+/* --------- GLOBAL ----------- */ 
+
+html{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background-color: $cinzaescuro;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    min-width: 100vw;
+    color: #fff;
+}
+
+#menu-bt{
+    height: 50px;
+    width: 50px;
+    font-size: 1.2em;
+    line-height: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 12;
+    border-radius: 50%;
+    
+    &:active{
+        background: rgba(255, 255, 255, 0.5);
+    }
+}
+
+#menu_lateral{
+    position: fixed;
+    display: none;
+    z-index: 11;
+    top: 0;
+    left: 0;
+    width: 25vw;
+    height: 100vh;
+    padding-top: 90px;
+    box-sizing: border-box;
+    background: url(../img/background_light.png);
+
+    h3{
+        padding: 0px 10px;
+        margin-bottom: 30px;
+        margin-top: 0;
+    }
+
+    a.readme{
+        padding: 15px;
+        margin-top: 10px;
+        display: inline-block;
+        color: #fff;
+    }
+
+    .imagem{
+        height: 58px;
+        width: 70px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 40px;
+
+        img{
+            height: 110%;
+            position: absolute;
+            @include center();
+        }
+    }
+
+    #selecionarFundo{
+        position: relative;
+        width: 100%;
+        height: 20vh;
+        background-size: 150%;
+        background-position: center;
+        margin-top: 20px;
+        cursor: pointer;
+
+        h2{
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 5;
+        }
+
+        sub{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 5;
+        }
+
+        .cortina{
+            display: block;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        &:hover{
+            background-size: 180%;
+        }
+
+    }
+
+    footer{
+        position: absolute;
+        bottom: 20px;
+        @include centerx();
+        opacity: .8;
+        font-size: .8em;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+#menu_bandeiras{
+    position: fixed;
+    display: none;
+    z-index: 10;
+    top: 0;
+    left: 25vw;
+    width: 75vw;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background: url(../img/background_dark.png);
+    box-shadow: inset 0 0 20px #000;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: transparent;
+    }
+    
+    &::-webkit-scrollbar
+    {
+        width: 12px;
+        background-color: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    h1{
+        span{
+            color: rgba(255, 255, 255, 0.6);
+            font-size: .8em;
+        }
+    }
+}
+
+.input_colocacao{
+    position: relative;
+    cursor: pointer;
+    padding: 20px 10px;
+    padding-left: 60px;
+    overflow: hidden;
+
+    &:hover{
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .medalha{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 100%;
+        box-sizing: border-box;
+        line-height: 58px;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 0 12px;
+
+        &.ouro{
+            background: #d4a91c;
+        }
+
+        &.prata{
+            background: #a5a5a5;
+        }
+
+        &.bronze{
+            background: #774f14;
+        }
+    }
+}
+
+.cortina{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    transition: .2s all;
+}
+
+#bandeiras{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .bandeira{
+        flex-grow: 0;
+        flex-basis: auto;
+        position: relative;
+        display: inline-block;
+        min-width: 150px;
+        height: 100px;
+        margin: 20px;
+        overflow: hidden;
+        transition: .2s all;
+        cursor: pointer;
+
+        img{
+            position: absolute;
+            @include center();
+            height: 120%;
+        }
+
+        span{
+            position: absolute;
+            @include center();
+            z-index: 3;
+            opacity: 0;
+            transition: .2s all;
+        }
+
+        &:hover{
+            box-shadow: 0 7px 10px #000;
+            transform: translateY(-5px);
+
+            .cortina{
+                background: rgba(0, 0, 0, 0.8);
+            }
+
+            span{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+#bandeiras{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .background{
+        flex: 1 1 auto;
+        position: relative;
+        display: inline-block;
+        min-width: 350px;
+        height: 250px;
+        margin: 5px;
+        overflow: hidden;
+        transition: .2s all;
+        cursor: pointer;
+
+        img{
+            position: absolute;
+            @include center();
+            object-fit: cover;
+        }
+
+        span{
+            position: absolute;
+            @include center();
+            z-index: 3;
+            opacity: 0;
+            transition: .2s all;
+        }
+
+        &:hover{
+            box-shadow: 0 7px 10px #000;
+            transform: translateY(-5px);
+
+            .cortina{
+                background: rgba(0, 0, 0, 0.8);
+            }
+
+            span{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+#main_canvas_container {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: url(../img/cursor.png), none;
+
+    &.blur{
+        filter: blur(4px);
+    }
+}
+
+#hino{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: none;
+    z-index: 2;
+    opacity: .3;
+}
+
+.action-bt{
+    position: fixed;
+    padding: 10px;
+    border:0;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    bottom: 20px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.toggle-bt{
+
+    sub{
+        position: absolute;
+        bottom: 3px;
+        right: 3px;
+        font-weight: bold;
+    }
+    .show{
+        display: none;
+    }
+}
+
+#fullscreen{
+    right: 370px;
+}
+
+#togglefirst{
+    right: 320px;
+}
+
+#togglesecond{
+    right: 270px;
+}
+
+#togglethird{
+    right: 220px;
+}
+
+#togglefourth{
+    right: 170px;
+}
+
+#resetAll{
+    right: 120px;
+}
+
+#pauseAll{
+    right: 70px;
+}
+
+#playAll{
+    right: 20px;
+}
+
+button.simple{
+    margin: 10%;
+    padding: 10px 20px;
+    border:none;
+    background: $cinzaescuro;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    width: 80%;
+
+    &:hover{
+        background: $azulmarinha;
+    }
+}
+
+/* --------- README ----------- */ 
+
+#readme{
+    padding: 50px;
+    color: rgb(88, 88, 88);
+    background: rgb(243, 243, 243);
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    video{
+        max-width: 1024px;
+        width: 100%;
+    }
+}
+

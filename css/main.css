@@ -1,0 +1,460 @@
+/* --------- IMPORTS & MIXINS ----------- */
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+/* --------- VARIAVEIS ----------- */
+/* --------- GLOBAL ----------- */
+html {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background-color: #313131;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+  color: #fff;
+}
+
+#menu-bt {
+  height: 50px;
+  width: 50px;
+  font-size: 1.2em;
+  line-height: 30px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 12;
+  border-radius: 50%;
+}
+
+#menu-bt:active {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#menu_lateral {
+  position: fixed;
+  display: none;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 100vh;
+  padding-top: 90px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(../img/background_light.png);
+}
+
+#menu_lateral h3 {
+  padding: 0px 10px;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+#menu_lateral a.readme {
+  padding: 15px;
+  margin-top: 10px;
+  display: inline-block;
+  color: #fff;
+}
+
+#menu_lateral .imagem {
+  height: 58px;
+  width: 70px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 40px;
+}
+
+#menu_lateral .imagem img {
+  height: 110%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#menu_lateral #selecionarFundo {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  background-size: 150%;
+  background-position: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#menu_lateral #selecionarFundo h2 {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 5;
+}
+
+#menu_lateral #selecionarFundo sub {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 5;
+}
+
+#menu_lateral #selecionarFundo .cortina {
+  display: block;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+#menu_lateral #selecionarFundo:hover {
+  background-size: 180%;
+}
+
+#menu_lateral footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: .8;
+  font-size: .8em;
+  text-align: center;
+  width: 100%;
+}
+
+#menu_bandeiras {
+  position: fixed;
+  display: none;
+  z-index: 10;
+  top: 0;
+  left: 25vw;
+  width: 75vw;
+  height: 100vh;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: url(../img/background_dark.png);
+  -webkit-box-shadow: inset 0 0 20px #000;
+          box-shadow: inset 0 0 20px #000;
+  overflow-y: auto;
+}
+
+#menu_bandeiras::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+#menu_bandeiras::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+}
+
+#menu_bandeiras::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1);
+          box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#menu_bandeiras h1 span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: .8em;
+}
+
+.input_colocacao {
+  position: relative;
+  cursor: pointer;
+  padding: 20px 10px;
+  padding-left: 60px;
+  overflow: hidden;
+}
+
+.input_colocacao:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.input_colocacao .medalha {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 58px;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0 12px;
+}
+
+.input_colocacao .medalha.ouro {
+  background: #d4a91c;
+}
+
+.input_colocacao .medalha.prata {
+  background: #a5a5a5;
+}
+
+.input_colocacao .medalha.bronze {
+  background: #774f14;
+}
+
+.cortina {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+}
+
+#bandeiras {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#bandeiras .bandeira {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  position: relative;
+  display: inline-block;
+  min-width: 150px;
+  height: 100px;
+  margin: 20px;
+  overflow: hidden;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+  cursor: pointer;
+}
+
+#bandeiras .bandeira img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 120%;
+}
+
+#bandeiras .bandeira span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+  opacity: 0;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+}
+
+#bandeiras .bandeira:hover {
+  -webkit-box-shadow: 0 7px 10px #000;
+          box-shadow: 0 7px 10px #000;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+#bandeiras .bandeira:hover .cortina {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#bandeiras .bandeira:hover span {
+  opacity: 1;
+}
+
+#bandeiras {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#bandeiras .background {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  position: relative;
+  display: inline-block;
+  min-width: 350px;
+  height: 250px;
+  margin: 5px;
+  overflow: hidden;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+  cursor: pointer;
+}
+
+#bandeiras .background img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#bandeiras .background span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+  opacity: 0;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+}
+
+#bandeiras .background:hover {
+  -webkit-box-shadow: 0 7px 10px #000;
+          box-shadow: 0 7px 10px #000;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+#bandeiras .background:hover .cortina {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#bandeiras .background:hover span {
+  opacity: 1;
+}
+
+#main_canvas_container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: url(../img/cursor.png), none;
+}
+
+#main_canvas_container.blur {
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+}
+
+#hino {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: none;
+  z-index: 2;
+  opacity: .3;
+}
+
+.action-bt {
+  position: fixed;
+  padding: 10px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 2;
+  bottom: 20px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.toggle-bt sub {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  font-weight: bold;
+}
+
+.toggle-bt .show {
+  display: none;
+}
+
+#fullscreen {
+  right: 370px;
+}
+
+#togglefirst {
+  right: 320px;
+}
+
+#togglesecond {
+  right: 270px;
+}
+
+#togglethird {
+  right: 220px;
+}
+
+#togglefourth {
+  right: 170px;
+}
+
+#resetAll {
+  right: 120px;
+}
+
+#pauseAll {
+  right: 70px;
+}
+
+#playAll {
+  right: 20px;
+}
+
+button.simple {
+  margin: 10%;
+  padding: 10px 20px;
+  border: none;
+  background: #313131;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2em;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  width: 80%;
+}
+
+button.simple:hover {
+  background: #2f5d9b;
+}
+
+/* --------- README ----------- */
+#readme {
+  padding: 50px;
+  color: #585858;
+  background: #f3f3f3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-y: auto;
+}
+
+#readme video {
+  max-width: 1024px;
+  width: 100%;
+}
+/*# sourceMappingURL=main.css.map */

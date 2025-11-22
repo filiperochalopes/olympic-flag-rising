@@ -1,0 +1,17 @@
+[
+    {
+        "nome" : "Estádio Futebol",
+        "apelido" : "estadiofutebol",
+        "url" : "estadiofutebol.jpg"
+    },
+    {
+        "nome" : "Estádio Olímpico",
+        "apelido" : "olimpico",
+        "url" : "olimpico.jpg"
+    },
+    {
+        "nome" : "Ginásio - CEFAN",
+        "apelido" : "cefan",
+        "url" : "cefan.jpg"
+    }
+]

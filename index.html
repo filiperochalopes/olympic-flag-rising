@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Hasteamento de bandeiras</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+<link rel="stylesheet" href="css/main.css" type="text/css">
+
+<script type="text/javascript" src="js/b4w.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/fontawesome.js"></script>
+<script type="text/javascript" src="js/blend4web.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+</head>
+<body>
+    <div class="none" id="backdrop"></div>
+    
+    <!-- HEADER -->
+    <div id="menu-bt"><i class="fas fa-bars"></i></div>
+    <div id="menu_lateral" data-visibility="hide">
+        <h3>Programa de Hasteamento de Bandeiras Eletrônicas</h3>
+        <div id="primeirolugar-bt" class="input_colocacao" data-input="primeirolugar" data-legenda="Primeiro Lugar" data-colocacao="1">
+            <div class="medalha ouro">1</div>
+            <div class="imagem"></div>
+            <span>Selecione Equipe</span>
+            <input type="hidden" id="primeirolugar" />
+        </div>
+        <div id="segundolugar-bt" class="input_colocacao" data-input="segundolugar" data-legenda="Segundo Lugar" data-colocacao="2">
+            <div class="medalha prata">2</div>
+            <div class="imagem"></div>
+            <span>Selecione Equipe</span>
+            <input type="hidden" id="segundolugar" />
+        </div>
+        <div id="terceirolugar-bt" class="input_colocacao" data-input="terceirolugar" data-legenda="Terceiro Lugar" data-colocacao="3">
+            <div class="medalha bronze">3</div>
+            <div class="imagem"></div>
+            <span>Selecione Equipe</span>
+            <input type="hidden" id="terceirolugar" />
+        </div>
+        <div id="quartolugar-bt" class="input_colocacao" data-input="quartolugar" data-legenda="Quarto Lugar" data-colocacao="4">
+            <div class="medalha bronze">4</div>
+            <div class="imagem"></div>
+            <span>Selecione Equipe</span>
+            <input type="hidden" id="quartolugar" />
+        </div>
+        <button id="aplicarbandeiras" class="simple">Aplicar</button>
+
+        <div id="selecionarFundo" data-apelido="padrao">
+            <h2>Fundo</h2>
+            <div class="cortina"></div>
+            <sub>Clique para alterar o fundo</sub>
+        </div>
+
+        <a class="readme" href="README.html" target="_blank">Instruções</a>
+        
+        <footer>Desenvolvido por <a href="https://filipelopes.me" target="_blank">Filipe Lopes</a></footer>
+    </div>
+
+    <div id="menu_bandeiras" data-visibility="hide" data-input="none">
+        <h1><span id="titulo_principal"></span> <span id="titulo_input"></span></h1>
+        <div class="flex" id="bandeiras"></div>
+    </div>
+    
+    <div id="main_canvas_container"></div>
+
+    <audio id="hino" controls>
+        <source id="hinomp3" src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button id="togglefirst" class="toggle-bt action-bt">
+        <span class="hide"><i class="fas fa-eye-slash"></i></span>
+        <span class="show"><i class="fas fa-eye"></i></span>
+        <sub>1</sub>
+    </button>
+    <button id="togglesecond" class="toggle-bt action-bt">
+        <span class="hide"><i class="fas fa-eye-slash"></i></span>
+        <span class="show"><i class="fas fa-eye"></i></span>
+        <sub>2</sub>
+    </button>
+    <button id="togglethird" class="toggle-bt action-bt">
+        <span class="hide"><i class="fas fa-eye-slash"></i></span>
+        <span class="show"><i class="fas fa-eye"></i></span>
+        <sub>3</sub>
+    </button>
+    <button id="togglefourth" class="toggle-bt action-bt">
+        <span class="hide"><i class="fas fa-eye-slash"></i></span>
+        <span class="show"><i class="fas fa-eye"></i></span>
+        <sub>4</sub>
+    </button>
+    <button id="resetAll" class="action-bt"><i class="fas fa-stop"></i></button>
+    <button id="playAll" class="action-bt"><i class="fas fa-play"></i></button>
+    <button id="pauseAll" class="action-bt"><i class="fas fa-pause"></i></button>
+    <button id="fullscreen" class="action-bt"><i class="fas fa-expand"></i></button>
+    
+</body>
+
+</html>

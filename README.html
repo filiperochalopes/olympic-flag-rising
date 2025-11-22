@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Hasteamento de bandeiras</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<script type="text/javascript" src="js/fontawesome.js"></script>
+
+</head>
+<body id="readme">
+    <h1>
+    Sistema de hasteamento de bandeiras digitais
+    </h1>
+    <h2><i class="fas fa-cog"></i> Como funciona</h2>
+    <h3>Primeiros passos</h3>
+    <ol>
+        <li>Selecionar os países nas suas respectivas colocações pelo menu lateral</li>
+        <li>Aplicar as bandeiras escolhidas ao modelo 3D</li>
+        <li>Escolher um cenário para a animação</li>
+        <li>Começar animação através do botão <i class="fas fa-play"></i> no canto inferior direito, ou através do atalho da <strong>tecla de espaço</strong></li>
+    </ol>
+    <h3>Atalhos</h3>
+    <ul>
+        <li><strong>Dígito 1</strong> câmera dá zoom no primeiro colocado</li>
+        <li><strong>Dígito 2</strong> câmera movimenta-se para enquadrar o movimento de hasteamento da esquerda</li>
+        <li><strong>Dígito 3</strong> câmera movimenta-se para enquadrar o movimento de hasteamento da direita</li>
+        <li><strong>Dígito 0</strong> câmera volta a posição inicial</li>
+        <li><strong>Ctrl + Dígito 1</strong> Visualizar/esconder bandeira do primeiro lugar</li>
+        <li><strong>Ctrl + Dígito 2</strong> Visualizar/esconder bandeira do segundo lugar</li>
+        <li><strong>Ctrl + Dígito 3</strong> Visualizar/esconder bandeira do terceiro lugar</li>
+        <li><strong>Ctrl + Dígito 4</strong> Visualizar/esconder bandeira do quarto lugar</li>
+        <li><strong>Tecla W</strong> câmera dá zoom</li>
+        <li><strong>Tecla S</strong> câmera retira zoom</li>
+        <li><strong>Seta para cima</strong> câmera rotaciona para cima</li>
+        <li><strong>Seta para baixo</strong> câmera rotaciona para baixo</li>
+        <li><strong>Seta para a direita ou tecla A</strong> câmera rotaciona para a direita</li>
+        <li><strong>Seta para a esquerda ou tecla D</strong> câmera rotaciona para a esquerda</li>
+        <li><strong>Movimento do mouse com botão esquerdo pressionado</strong> movimento de câmera multirotacional</li>
+        <li><strong>Tecla de espaço</strong> <i>play/pause</i></li>
+        <li><strong>Tecla Ctrl + espaço</strong> <i>Restart</i></li>
+        <li><strong>Tecla T</strong> Tela cheia</li>
+        <li><strong>Tecla Esc</strong> Sair de tela cheia</li>
+    </ul>
+    <p><blockquote><i class="fas fa-exclamation-triangle"></i> <strong>Atenção</strong> ao dar <i>play</i> no sistema ele automáticamente reinicia o hasteamento, portanto, não dar <i>play</i> durante o hasteameto</blockquote></p>
+    <h2><i class="fas fa-cog"></i> Configurações</h2>
+    <p>Para adicionar novos <strong>cenários</strong> ou novas <strong>bandeiras</strong> você precisa ter conhecimento da estrutura de tipos de arquivo <i>json</i>.</p>
+    <p>Localizando os arquivos <code>background.json</code> (arquivo de configuração de cenário) e <code>database.json</code> (arquivo de configuração de bandeiras) na pasta <code>js</code> você pode ter acesso e adicionar novos itens. Favor colocar as bandeiras sempre em ordem alfabética</p>
+    <p>Após isso é necessário adicionar a bandeira e o hino.<blockquote><i class="fas fa-exclamation-circle"></i> <strong>Importante</strong> as extensões dos arquivos devem ser *.jpg e *.mp3 para bandeira e hinos respectivamente</blockquote></p>
+    <p>Para adicionar nova bandeira você deve colocar sua imagem na pasta <code>img/bandeira</code>, para adicionar um novo cenário a imagem deve ficar na pasta <code>img/fundo</code>. Os inos devem ser ineridos em <code>sound/hinos</code>.</p>
+    <p>Após isso é necessário adicionar a bandeira e o hino.<blockquote><i class="fas fa-exclamation-circle"></i> <strong>Importante</strong> os nomes da imagem da bandeira e áudio do hino devem ser iguais, respeitando o nome da propriedade apelido do novo país dicionado no documento json.</blockquote></p>
+    <h3>Arquivos json</h3>
+    <p>Um item de bandeira no arquivo <code>database.json</code> é composto por:
+    <code>
+        {
+            "nome" : "Brasil",
+            "apelido" : "brasil"
+        }
+    </code>, sendo o apelido o mesmo nome dos arquivos de imagem e áudio referente ao país, mas sem sua extensão.
+    </p>
+    <p>Um item de cenário no arquivo <code>background.json</code> é composto por:
+    <code>
+        {
+            "nome" : "Ginásio - CEFAN",
+            "apelido" : "cefan",
+            "url" : "cefan.jpg"
+        }
+    </code>, sendo o nome a palavra que aparecerá para o usuário reconhecer e a url o nome do arquivo de imagem com sua extensão na pasta <code>img/fundo</code>.
+    </p>
+    <p>
+        <video controls>
+            <source src="readme/video.ogv" type="video/ogg">
+            Your browser does not support HTML5 video.
+        </video>
+    </p>
+</body>
+</html>
